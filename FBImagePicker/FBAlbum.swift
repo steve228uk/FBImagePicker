@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import FBSDKCoreKit
 
 /// Represents an album on Facebook
@@ -51,7 +52,7 @@ open class FBAlbum {
                 }
                 
                 guard let dict = result as? [String:Any], let photos = dict["data"] as? [[String:Any]] else {
-                    completionHandler([], FBImagePickerError.parseJSONError)
+                    completionHandler([], FBImagePickerError.parseJSON)
                     return
                 }
                 
@@ -66,34 +67,34 @@ open class FBAlbum {
         
     }
     
-//    func getNext(completionHandler: ([String]) -> Void) {
-//        
-//        guard let next = nextPage else {
-//            completionHandler([])
-//            return
-//        }
-//        
-//        Alamofire.request(.GET, next)
-//            .responseJSON { response in
-//                guard let dict = response.result.value as? [String:AnyObject] else {
-//                    completionHandler([])
-//                    return
-//                }
-//                
-//                guard let photos = dict["data"] as? [[String:AnyObject]] else {
-//                    completionHandler([])
-//                    return
-//                }
-//                
-//                self.nextPage = (dict["paging"] as? [String:AnyObject])?["next"] as? String
-//                
-//                let mapped = photos.map { json in
-//                    return "https://graph.facebook.com/v2.8/\(json["id"] as! String)/picture?access_token=\(FBSDKAccessToken.currentAccessToken().tokenString)"
-//                }
-//                
-//                completionHandler(mapped)
-//                
-//        }
-//    }
+    /// Get the next page if there is one
+    ///
+    /// - Parameter completionHandler: The response handler
+    func getNextPage(completionHandler: @escaping ([String], Error?) -> Void) {
+        
+        guard let next = nextPage else {
+            completionHandler([], FBImagePickerError.lastPage)
+            return
+        }
+        
+        Alamofire.request(next)
+            .responseJSON { [unowned self] response in
+                
+                if let error = response.result.error {
+                    completionHandler([], error)
+                    return
+                }
+                
+                guard let dict = response.result.value as? [String:Any], let photos = dict["data"] as? [[String:Any]] else { return }
+                self.nextPage = (dict["paging"] as? [String:Any])?["next"] as? String
+
+                let mapped = photos.map { json in
+                    return "https://graph.facebook.com/v2.8/\(json["id"] as! String)/picture?access_token=\(FBSDKAccessToken.current().tokenString)"
+                }
+
+                completionHandler(mapped, nil)
+            }
+        
+    }
     
 }

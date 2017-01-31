@@ -18,7 +18,7 @@ public class FBImagePicker {
     /// - Parameter completionHandler: The response handler
     public class func getAlbums(completionHandler: @escaping ([FBAlbum], String?, Error?) -> Void) {
         FBSDKGraphRequest(graphPath: "me/albums", parameters: ["fields": ""], httpMethod: "GET")
-            .start { connection, result, error in        
+            .start { connection, result, error in
                 if let error = error {
                     completionHandler([], nil, error)
                     return

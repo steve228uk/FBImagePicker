@@ -10,6 +10,8 @@ import Foundation
 
 enum FBImagePickerError: Error {
     
-    case parseJSONError
+    case parseJSON
+    
+    case lastPage
     
 }
