@@ -25,13 +25,18 @@ public class FBImagePicker {
                 }
                 
                 guard let dict = result as? [String:Any], let albums = dict["data"] as? [[String:Any]] else {
-                    completionHandler([], nil, FBImagePickerError.parseJSONError)
+                    completionHandler([], nil, FBImagePickerError.parseJSON)
                     return
                 }
                 
                 let nextPage = (dict["paging"] as? [String:AnyObject])?["next"] as? String
                 completionHandler(albums.map(FBAlbum.init), nextPage, nil)
             }
+    }
+    
+    public class func present(on viewController: UIViewController) {
+        guard let vc = UIStoryboard(name: "FBImagePicker", bundle: Bundle(for: self)).instantiateInitialViewController() else { return }
+        viewController.present(vc, animated: true, completion: nil)
     }
     
 }

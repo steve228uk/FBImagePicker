@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2848C88A1E40EA9E00982B39 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2848C8891E40EA9E00982B39 /* Alamofire.framework */; };
 		2848C88F1E40F3E300982B39 /* FBImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2848C88E1E40F3E300982B39 /* FBImagePickerDelegate.swift */; };
+		2848C8911E40F80700982B39 /* FBAlbumSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2848C8901E40F80700982B39 /* FBAlbumSelectorViewController.swift */; };
+		2848C8951E40F8B800982B39 /* FBImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2848C8971E40F8B800982B39 /* FBImagePicker.storyboard */; };
 		28916D221E40AB9C00CE0BED /* FBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28916D181E40AB9C00CE0BED /* FBImagePicker.framework */; };
 		28916D271E40AB9C00CE0BED /* FBImagePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28916D261E40AB9C00CE0BED /* FBImagePickerTests.swift */; };
 		28916D291E40AB9C00CE0BED /* FBImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 28916D1B1E40AB9C00CE0BED /* FBImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		2848C8891E40EA9E00982B39 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		2848C88E1E40F3E300982B39 /* FBImagePickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImagePickerDelegate.swift; sourceTree = "<group>"; };
+		2848C8901E40F80700982B39 /* FBAlbumSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAlbumSelectorViewController.swift; sourceTree = "<group>"; };
+		2848C8961E40F8B800982B39 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/FBImagePicker.storyboard; sourceTree = "<group>"; };
 		28916D181E40AB9C00CE0BED /* FBImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28916D1B1E40AB9C00CE0BED /* FBImagePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBImagePicker.h; sourceTree = "<group>"; };
 		28916D1C1E40AB9C00CE0BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 		2848C88C1E40F1B100982B39 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2848C8901E40F80700982B39 /* FBAlbumSelectorViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -80,6 +85,14 @@
 				2848C88E1E40F3E300982B39 /* FBImagePickerDelegate.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		2848C8921E40F82B00982B39 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2848C8971E40F8B800982B39 /* FBImagePicker.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		28916D0E1E40AB9C00CE0BED = {
@@ -104,11 +117,12 @@
 		28916D1A1E40AB9C00CE0BED /* FBImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				2848C8921E40F82B00982B39 /* Storyboards */,
 				2848C88D1E40F3CE00982B39 /* Protocols */,
 				2848C88C1E40F1B100982B39 /* View Controllers */,
 				28916D331E40AC7600CE0BED /* Models */,
-				28916D361E40AE5F00CE0BED /* FBImagePickerError.swift */,
 				28916D321E40ABD000CE0BED /* Supporting Files */,
+				28916D361E40AE5F00CE0BED /* FBImagePickerError.swift */,
 				28916D571E40B49F00CE0BED /* FBImagePicker.swift */,
 			);
 			path = FBImagePicker;
@@ -246,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2848C8951E40F8B800982B39 /* FBImagePicker.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +280,7 @@
 			files = (
 				28916D371E40AE5F00CE0BED /* FBImagePickerError.swift in Sources */,
 				28916D581E40B49F00CE0BED /* FBImagePicker.swift in Sources */,
+				2848C8911E40F80700982B39 /* FBAlbumSelectorViewController.swift in Sources */,
 				2848C88F1E40F3E300982B39 /* FBImagePickerDelegate.swift in Sources */,
 				28916D351E40AC8800CE0BED /* FBAlbum.swift in Sources */,
 			);
@@ -287,6 +303,17 @@
 			targetProxy = 28916D231E40AB9C00CE0BED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2848C8971E40F8B800982B39 /* FBImagePicker.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2848C8961E40F8B800982B39 /* en */,
+			);
+			name = FBImagePicker.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		28916D2A1E40AB9C00CE0BED /* Debug */ = {
