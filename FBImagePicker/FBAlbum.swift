@@ -34,7 +34,7 @@ open class FBAlbum {
     /// Construct a new Facebook album from JSON retreived from the API
     ///
     /// - Parameter json: The JSON object received from the API
-    init(json: [String:AnyObject]) {
+    init(json: [String:Any]) {
         name = json["name"] as? String ?? ""
         id = json["id"] as? String ?? ""
     }
@@ -50,12 +50,12 @@ open class FBAlbum {
                     completionHandler([], error)
                 }
                 
-                guard let dict = result as? [String:AnyObject], let photos = dict["data"] as? [[String:AnyObject]] else {
+                guard let dict = result as? [String:Any], let photos = dict["data"] as? [[String:Any]] else {
                     completionHandler([], FBImagePickerError.parseJSONError)
                     return
                 }
                 
-                self.nextPage = (dict["paging"] as? [String:AnyObject])?["next"] as? String
+                self.nextPage = (dict["paging"] as? [String:Any])?["next"] as? String
                 
                 let mapped = photos.map { json in
                     return "https://graph.facebook.com/v2.8/\(json["id"] as! String)/picture?access_token=\(FBSDKAccessToken.current().tokenString)"

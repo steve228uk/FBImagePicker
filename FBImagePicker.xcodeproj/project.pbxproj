@@ -14,6 +14,7 @@
 		28916D371E40AE5F00CE0BED /* FBImagePickerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28916D361E40AE5F00CE0BED /* FBImagePickerError.swift */; };
 		28916D551E40B11B00CE0BED /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28916D531E40B11B00CE0BED /* FBSDKCoreKit.framework */; };
 		28916D561E40B11B00CE0BED /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28916D541E40B11B00CE0BED /* FBSDKLoginKit.framework */; };
+		28916D581E40B49F00CE0BED /* FBImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28916D571E40B49F00CE0BED /* FBImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		28916D361E40AE5F00CE0BED /* FBImagePickerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImagePickerError.swift; sourceTree = "<group>"; };
 		28916D531E40B11B00CE0BED /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		28916D541E40B11B00CE0BED /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		28916D571E40B49F00CE0BED /* FBImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				28916D331E40AC7600CE0BED /* Models */,
-				28916D321E40ABD000CE0BED /* Supporting Files */,
 				28916D361E40AE5F00CE0BED /* FBImagePickerError.swift */,
+				28916D321E40ABD000CE0BED /* Supporting Files */,
+				28916D571E40B49F00CE0BED /* FBImagePicker.swift */,
 			);
 			path = FBImagePicker;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28916D371E40AE5F00CE0BED /* FBImagePickerError.swift in Sources */,
+				28916D581E40B49F00CE0BED /* FBImagePicker.swift in Sources */,
 				28916D351E40AC8800CE0BED /* FBAlbum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
