@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+enum FBImagePickerError: Error {
+    
+    case parseJSONError
+    
+}
