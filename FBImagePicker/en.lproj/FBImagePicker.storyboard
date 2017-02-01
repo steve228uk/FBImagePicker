@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,6 +25,44 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rdO-iX-BEI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="album" rowHeight="83" id="SOI-eq-rhx" customClass="FBAlbumTableViewCell" customModule="FBImagePicker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SOI-eq-rhx" id="BBQ-N8-bGo">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="82"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jHO-7G-5U8">
+                                                    <rect key="frame" x="16" y="8" width="66" height="66"/>
+                                                    <color key="backgroundColor" red="0.87724908509999999" green="0.88488803869999999" blue="0.8884280416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="66" id="PnC-Ma-U9I"/>
+                                                        <constraint firstAttribute="height" constant="66" id="yCH-bq-2ah"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fR3-Zt-FDa">
+                                                    <rect key="frame" x="98" y="31" width="236" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jHO-7G-5U8" firstAttribute="leading" secondItem="BBQ-N8-bGo" secondAttribute="leadingMargin" constant="8" id="6X9-HD-e7m"/>
+                                                <constraint firstItem="fR3-Zt-FDa" firstAttribute="trailing" secondItem="BBQ-N8-bGo" secondAttribute="trailingMargin" id="XJW-sE-f5h"/>
+                                                <constraint firstItem="jHO-7G-5U8" firstAttribute="top" secondItem="BBQ-N8-bGo" secondAttribute="topMargin" id="djB-E0-qGO"/>
+                                                <constraint firstItem="fR3-Zt-FDa" firstAttribute="leading" secondItem="jHO-7G-5U8" secondAttribute="trailing" constant="16" id="mI8-1Y-mQM"/>
+                                                <constraint firstItem="jHO-7G-5U8" firstAttribute="bottom" secondItem="BBQ-N8-bGo" secondAttribute="bottomMargin" id="mLB-uN-gov"/>
+                                                <constraint firstItem="fR3-Zt-FDa" firstAttribute="centerY" secondItem="BBQ-N8-bGo" secondAttribute="centerY" id="tMk-I7-ZE3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="albumNameLabel" destination="fR3-Zt-FDa" id="gsK-gy-27J"/>
+                                            <outlet property="coverImage" destination="jHO-7G-5U8" id="5mI-kB-HE8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,7 +84,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7d5-QI-QkI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="AWt-l0-5l5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="AWt-l0-5l5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2326107919216156" green="0.3484196662902832" blue="0.59613007307052612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

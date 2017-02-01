@@ -39,4 +39,10 @@ public class FBImagePicker {
         viewController.present(vc, animated: true, completion: nil)
     }
     
+    struct Settings {
+        
+        static var albumsTitle = "Facebook Albums"
+        
+    }
+    
 }
