@@ -14,7 +14,7 @@ open class FBAlbumViewController: UIViewController {
     
     internal var album: FBAlbum?
     fileprivate var images = [FBImage]()
-    var loading = false
+    fileprivate var loading = false
     
     override open func viewDidLoad() {
         super.viewDidLoad()
