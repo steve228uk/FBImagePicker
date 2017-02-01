@@ -3,7 +3,6 @@ Pod::Spec.new do |s|
   s.name         = "FBImagePicker"
   s.version      = "1.0.0"
   s.summary      = ":camera: An image picker for Facebook"
-
   s.description  = <<-DESC
   FBImagePicker is a quick and easy drop-in image picker for Facebook. It works in tandem with the official Facebook SDK to allow easy selection of images from user albums.
                    DESC
@@ -18,9 +17,11 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/steve228uk/FBImagePicker.git", :tag => "1.0.0" }
-  s.source_files  = "FBImagePicker", "FBImagePicker/en.lproj"
-
-  s.requires_arc = true
+  s.source_files  = "FBImagePicker/**/*.swift"
+  s.framework = "UIKit"
+  s.resource_bundles = {
+      'FBImagePicker' => ['FBImagePicker/**/*.{storyboard}']
+  }
 
   s.dependency "Alamofire"
   s.dependency "FBSDKCoreKit"
