@@ -24,7 +24,7 @@ First, set the delegate where you wish to access selected images:
 ```swift
 import FBImagePicker
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FBImagePickerDelegate {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
