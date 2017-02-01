@@ -10,8 +10,6 @@
 		2848C88A1E40EA9E00982B39 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2848C8891E40EA9E00982B39 /* Alamofire.framework */; };
 		2848C88F1E40F3E300982B39 /* FBImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2848C88E1E40F3E300982B39 /* FBImagePickerDelegate.swift */; };
 		2848C8911E40F80700982B39 /* FBAlbumSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2848C8901E40F80700982B39 /* FBAlbumSelectorViewController.swift */; };
-		28916D221E40AB9C00CE0BED /* FBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28916D181E40AB9C00CE0BED /* FBImagePicker.framework */; };
-		28916D271E40AB9C00CE0BED /* FBImagePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28916D261E40AB9C00CE0BED /* FBImagePickerTests.swift */; };
 		28916D291E40AB9C00CE0BED /* FBImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 28916D1B1E40AB9C00CE0BED /* FBImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28916D351E40AC8800CE0BED /* FBAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28916D341E40AC8800CE0BED /* FBAlbum.swift */; };
 		28916D371E40AE5F00CE0BED /* FBImagePickerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28916D361E40AE5F00CE0BED /* FBImagePickerError.swift */; };
@@ -28,16 +26,6 @@
 		28FCD8831E42218400E3FB2D /* FBImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28FCD8821E42218400E3FB2D /* FBImagePicker.storyboard */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		28916D231E40AB9C00CE0BED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28916D0F1E40AB9C00CE0BED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 28916D171E40AB9C00CE0BED;
-			remoteInfo = FBImagePicker;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		2848C8891E40EA9E00982B39 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		2848C88E1E40F3E300982B39 /* FBImagePickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImagePickerDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +33,6 @@
 		28916D181E40AB9C00CE0BED /* FBImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28916D1B1E40AB9C00CE0BED /* FBImagePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBImagePicker.h; sourceTree = "<group>"; };
 		28916D1C1E40AB9C00CE0BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28916D211E40AB9C00CE0BED /* FBImagePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FBImagePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28916D261E40AB9C00CE0BED /* FBImagePickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBImagePickerTests.swift; sourceTree = "<group>"; };
 		28916D281E40AB9C00CE0BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28916D341E40AC8800CE0BED /* FBAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAlbum.swift; sourceTree = "<group>"; };
@@ -71,14 +58,6 @@
 				2848C88A1E40EA9E00982B39 /* Alamofire.framework in Frameworks */,
 				28916D551E40B11B00CE0BED /* FBSDKCoreKit.framework in Frameworks */,
 				28916D561E40B11B00CE0BED /* FBSDKLoginKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		28916D1E1E40AB9C00CE0BED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				28916D221E40AB9C00CE0BED /* FBImagePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				28916D181E40AB9C00CE0BED /* FBImagePicker.framework */,
-				28916D211E40AB9C00CE0BED /* FBImagePickerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,24 +203,6 @@
 			productReference = 28916D181E40AB9C00CE0BED /* FBImagePicker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		28916D201E40AB9C00CE0BED /* FBImagePickerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 28916D2F1E40AB9C00CE0BED /* Build configuration list for PBXNativeTarget "FBImagePickerTests" */;
-			buildPhases = (
-				28916D1D1E40AB9C00CE0BED /* Sources */,
-				28916D1E1E40AB9C00CE0BED /* Frameworks */,
-				28916D1F1E40AB9C00CE0BED /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				28916D241E40AB9C00CE0BED /* PBXTargetDependency */,
-			);
-			name = FBImagePickerTests;
-			productName = FBImagePickerTests;
-			productReference = 28916D211E40AB9C00CE0BED /* FBImagePickerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -257,11 +217,6 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = B598AEF9ZM;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
-					};
-					28916D201E40AB9C00CE0BED = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = B598AEF9ZM;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -279,7 +234,6 @@
 			projectRoot = "";
 			targets = (
 				28916D171E40AB9C00CE0BED /* FBImagePicker */,
-				28916D201E40AB9C00CE0BED /* FBImagePickerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -290,13 +244,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28FCD8831E42218400E3FB2D /* FBImagePicker.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		28916D1F1E40AB9C00CE0BED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,23 +269,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		28916D1D1E40AB9C00CE0BED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				28916D271E40AB9C00CE0BED /* FBImagePickerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		28916D241E40AB9C00CE0BED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 28916D171E40AB9C00CE0BED /* FBImagePicker */;
-			targetProxy = 28916D231E40AB9C00CE0BED /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		28916D2A1E40AB9C00CE0BED /* Debug */ = {
@@ -491,32 +422,6 @@
 			};
 			name = Release;
 		};
-		28916D301E40AB9C00CE0BED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = B598AEF9ZM;
-				INFOPLIST_FILE = FBImagePickerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.co.wearecocoon.FBImagePickerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		28916D311E40AB9C00CE0BED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = B598AEF9ZM;
-				INFOPLIST_FILE = FBImagePickerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.co.wearecocoon.FBImagePickerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -534,15 +439,6 @@
 			buildConfigurations = (
 				28916D2D1E40AB9C00CE0BED /* Debug */,
 				28916D2E1E40AB9C00CE0BED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		28916D2F1E40AB9C00CE0BED /* Build configuration list for PBXNativeTarget "FBImagePickerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				28916D301E40AB9C00CE0BED /* Debug */,
-				28916D311E40AB9C00CE0BED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
