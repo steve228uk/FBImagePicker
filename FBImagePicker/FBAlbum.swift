@@ -21,8 +21,12 @@ open class FBAlbum {
     
     /// The URL of cover photo for the album
     public var coverURL: String {
-        return "https://graph.facebook.com/v2.8/\(id)/picture?type=thumbnail&access_token=\(FBSDKAccessToken.current().tokenString)"
+        guard let token = FBSDKAccessToken.current()?.tokenString else { return "" }
+        return "https://graph.facebook.com/v2.8/\(id)/picture?type=thumbnail&access_token=\(token)"
     }
+    
+    /// A cached cover image
+    public var coverImage: UIImage?
     
     /// Endpoint that's used to fetch photos for the album
     private var photosURL: String {
@@ -43,7 +47,12 @@ open class FBAlbum {
     /// Get photos for the album from the Graph API
     ///
     /// - Parameter completionHandler: The response handler
-    func getPhotos(completionHandler: @escaping ([String], Error?) -> Void) {
+    func getPhotos(completionHandler: @escaping ([FBImage], Error?) -> Void) {
+        
+        guard let token = FBSDKAccessToken.current()?.tokenString else {
+            completionHandler([], FBImagePickerError.badToken)
+            return
+        }
         
         FBSDKGraphRequest(graphPath: photosURL, parameters: ["fields": ""], httpMethod: "GET")
             .start { request, result, error in
@@ -59,18 +68,23 @@ open class FBAlbum {
                 self.nextPage = (dict["paging"] as? [String:Any])?["next"] as? String
                 
                 let mapped = photos.map { json in
-                    return "https://graph.facebook.com/v2.8/\(json["id"] as! String)/picture?access_token=\(FBSDKAccessToken.current().tokenString)"
+                    return FBImage(url: "https://graph.facebook.com/v2.8/\(json["id"] as! String)/picture?access_token=\(token)")
                 }
                 
                 completionHandler(mapped, nil)
-            }
+        }
         
     }
     
     /// Get the next page if there is one
     ///
     /// - Parameter completionHandler: The response handler
-    func getNextPage(completionHandler: @escaping ([String], Error?) -> Void) {
+    func getNextPage(completionHandler: @escaping ([FBImage], Error?) -> Void) {
+        
+        guard let token = FBSDKAccessToken.current()?.tokenString else {
+            completionHandler([], FBImagePickerError.badToken)
+            return
+        }
         
         guard let next = nextPage else {
             completionHandler([], FBImagePickerError.lastPage)
@@ -87,14 +101,31 @@ open class FBAlbum {
                 
                 guard let dict = response.result.value as? [String:Any], let photos = dict["data"] as? [[String:Any]] else { return }
                 self.nextPage = (dict["paging"] as? [String:Any])?["next"] as? String
-
+                
                 let mapped = photos.map { json in
-                    return "https://graph.facebook.com/v2.8/\(json["id"] as! String)/picture?access_token=\(FBSDKAccessToken.current().tokenString)"
+                    return FBImage(url: "https://graph.facebook.com/v2.8/\(json["id"] as! String)/picture?access_token=\(token)")
                 }
-
+                
                 completionHandler(mapped, nil)
-            }
+        }
         
+    }
+    
+    /// Load the cover image from Facebook
+    ///
+    /// - Parameter completionHandler: The response handler
+    public func getCoverImage(completionHandler: @escaping (UIImage?) -> Void) {
+        guard coverImage == nil else {
+            completionHandler(coverImage)
+            return
+        }
+        
+        Alamofire.request(coverURL)
+            .responseData { [unowned self] response in
+                guard let data = response.value else { return }
+                self.coverImage = UIImage(data: data)
+                completionHandler(self.coverImage)
+        }
     }
     
 }

@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Alamofire
 
 class FBAlbumTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var albumNameLabel: UILabel!
     
@@ -19,14 +20,16 @@ class FBAlbumTableViewCell: UITableViewCell {
             
             albumNameLabel.text = album.name
             
-            // Load the image here
-            
-//            coverImage.af_setImageWithURL(NSURL(string: album.coverURL)!, imageTransition: .CrossDissolve(0.5), runImageTransitionIfCached: false)
+            album.getCoverImage { [unowned self] image in
+                UIView.transition(with: self.coverImage, duration: FBImagePicker.Settings.imageTransitionDuration, options: .transitionCrossDissolve, animations: { [unowned self] in
+                    self.coverImage.image = image
+                }, completion: nil)
+            }
         }
     }
     
     override func prepareForReuse() {
         coverImage.image = nil
     }
-
+    
 }

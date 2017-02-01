@@ -9,11 +9,11 @@
 import UIKit
 
 open class FBAlbumViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     internal var album: FBAlbum?
-    fileprivate var images = [String]()
+    fileprivate var images = [FBImage]()
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ open class FBAlbumViewController: UIViewController {
         navigationItem.setRightBarButton(item, animated: false)
         title = album?.name
     }
-
+    
     /// Close the picker
     public func closePicker() {
         dismiss(animated: true, completion: nil)
@@ -69,7 +69,7 @@ extension FBAlbumViewController: UICollectionViewDelegateFlowLayout, UICollectio
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath) as! FBPhotoCollectionViewCell
-        // todo: set the cell image in here
+        cell.image = images[indexPath.row]
         return cell
     }
     

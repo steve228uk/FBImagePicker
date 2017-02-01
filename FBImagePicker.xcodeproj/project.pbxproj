@@ -22,6 +22,7 @@
 		289FF8221E41E31C003D4F16 /* FBAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8211E41E31C003D4F16 /* FBAlbumTableViewCell.swift */; };
 		289FF8241E41E504003D4F16 /* FBAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8231E41E504003D4F16 /* FBAlbumViewController.swift */; };
 		289FF8261E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8251E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift */; };
+		289FF8791E41F5D0003D4F16 /* FBImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8781E41F5D0003D4F16 /* FBImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		289FF8211E41E31C003D4F16 /* FBAlbumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAlbumTableViewCell.swift; sourceTree = "<group>"; };
 		289FF8231E41E504003D4F16 /* FBAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAlbumViewController.swift; sourceTree = "<group>"; };
 		289FF8251E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		289FF8781E41F5D0003D4F16 /* FBImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				28916D341E40AC8800CE0BED /* FBAlbum.swift */,
+				289FF8781E41F5D0003D4F16 /* FBImage.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				2848C88F1E40F3E300982B39 /* FBImagePickerDelegate.swift in Sources */,
 				28916D351E40AC8800CE0BED /* FBAlbum.swift in Sources */,
 				289FF8241E41E504003D4F16 /* FBAlbumViewController.swift in Sources */,
+				289FF8791E41F5D0003D4F16 /* FBImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

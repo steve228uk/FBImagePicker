@@ -35,7 +35,7 @@ public class FBImagePicker {
                 
                 let nextPage = (dict["paging"] as? [String:AnyObject])?["next"] as? String
                 completionHandler(albums.map(FBAlbum.init), nextPage, nil)
-            }
+        }
     }
     
     /// Present the image picker on the view controller defined here.
@@ -60,6 +60,9 @@ public class FBImagePicker {
         static var navBarTintColor = UIColor(hue:0.61, saturation:0.60, brightness:0.59, alpha:1.00)
         
         static var navBarTextColor = UIColor.white
+        
+        static var imageTransitionDuration = 0.3
+        
         
     }
     

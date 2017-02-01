@@ -14,4 +14,6 @@ enum FBImagePickerError: Error {
     
     case lastPage
     
+    case badToken
+    
 }
