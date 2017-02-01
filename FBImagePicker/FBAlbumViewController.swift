@@ -13,6 +13,7 @@ open class FBAlbumViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     internal var album: FBAlbum?
+    fileprivate var loadingView: FBImagePickerLoadingView!
     fileprivate var images = [FBImage]()
     fileprivate var loading = false
     
@@ -24,6 +25,16 @@ open class FBAlbumViewController: UIViewController {
         
         setupNavBar()
         loadPhotos()
+        addLoadingView()
+    }
+    
+    func addLoadingView() {
+        loadingView = FBImagePickerLoadingView()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(loadingView)
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subview]|", options: [], metrics: nil, views: ["subview": loadingView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subview]|", options: [], metrics: nil, views: ["subview": loadingView]))
     }
     
     /// Setup the navigation bar
@@ -49,6 +60,7 @@ open class FBAlbumViewController: UIViewController {
         album?.getPhotos { [unowned self] images, error in
             self.images = images
             self.collectionView.reloadData()
+            self.loadingView.fadeOut()
             self.getNextPage()
         }
     }

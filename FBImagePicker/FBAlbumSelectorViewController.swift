@@ -19,6 +19,7 @@ open class FBAlbumSelectorViewController: UIViewController {
     fileprivate var albums = [FBAlbum]()
     fileprivate var loading = false
     fileprivate var nextPage: String?
+    fileprivate var loadingView: FBImagePickerLoadingView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,16 @@ open class FBAlbumSelectorViewController: UIViewController {
         
         setupNavBar()
         loadAlbums()
+        addLoadingView()
+    }
+    
+    func addLoadingView() {
+        loadingView = FBImagePickerLoadingView()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(loadingView)
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subview]|", options: [], metrics: nil, views: ["subview": loadingView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subview]|", options: [], metrics: nil, views: ["subview": loadingView]))
     }
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -48,6 +59,8 @@ open class FBAlbumSelectorViewController: UIViewController {
             self.tableView.reloadData()
             self.nextPage = nextPage
             self.getNextPage()
+            self.loadingView.fadeOut()
+            
             // TODO: Hide the loading view
             // TODO: Show an error message if required
             // TODO: Show a no albums message if required
