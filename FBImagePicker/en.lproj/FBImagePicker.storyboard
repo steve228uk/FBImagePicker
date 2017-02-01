@@ -149,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="1685.5999999999999" y="65.217391304347828"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Image Picker Navigation Controller-->
         <scene sceneID="ARZ-sO-y4T">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7d5-QI-QkI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7d5-QI-QkI" customClass="FBImagePickerNavigationController" customModule="FBImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="AWt-l0-5l5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

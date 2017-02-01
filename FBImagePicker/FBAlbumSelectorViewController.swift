@@ -27,18 +27,8 @@ open class FBAlbumSelectorViewController: UIViewController {
         loadAlbums()
     }
     
-    open override var preferredStatusBarStyle: UIStatusBarStyle {
-        return FBImagePicker.Settings.statusBarStyle
-    }
-    
     /// Setup the navigation bar
     fileprivate func setupNavBar() {
-        navigationController?.navigationBar.tintColor = FBImagePicker.Settings.navTintColor
-        navigationController?.navigationBar.barTintColor = FBImagePicker.Settings.navBarTintColor
-        navigationController?.navigationBar.titleTextAttributes = [
-            NSForegroundColorAttributeName: FBImagePicker.Settings.navBarTextColor
-        ]
-        
         let item = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(closePicker))
         navigationItem.setRightBarButton(item, animated: false)
         title = FBImagePicker.Settings.albumsTitle

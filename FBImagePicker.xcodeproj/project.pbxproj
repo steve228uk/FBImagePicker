@@ -23,6 +23,7 @@
 		289FF8241E41E504003D4F16 /* FBAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8231E41E504003D4F16 /* FBAlbumViewController.swift */; };
 		289FF8261E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8251E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift */; };
 		289FF8791E41F5D0003D4F16 /* FBImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8781E41F5D0003D4F16 /* FBImage.swift */; };
+		289FF87F1E41FADA003D4F16 /* FBImagePickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF87E1E41FADA003D4F16 /* FBImagePickerNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		289FF8231E41E504003D4F16 /* FBAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAlbumViewController.swift; sourceTree = "<group>"; };
 		289FF8251E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		289FF8781E41F5D0003D4F16 /* FBImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImage.swift; sourceTree = "<group>"; };
+		289FF87E1E41FADA003D4F16 /* FBImagePickerNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImagePickerNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				289FF8211E41E31C003D4F16 /* FBAlbumTableViewCell.swift */,
 				289FF8231E41E504003D4F16 /* FBAlbumViewController.swift */,
 				289FF8251E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift */,
+				289FF87E1E41FADA003D4F16 /* FBImagePickerNavigationController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				28916D371E40AE5F00CE0BED /* FBImagePickerError.swift in Sources */,
 				289FF8221E41E31C003D4F16 /* FBAlbumTableViewCell.swift in Sources */,
 				28916D581E40B49F00CE0BED /* FBImagePicker.swift in Sources */,
+				289FF87F1E41FADA003D4F16 /* FBImagePickerNavigationController.swift in Sources */,
 				289FF8261E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift in Sources */,
 				2848C8911E40F80700982B39 /* FBAlbumSelectorViewController.swift in Sources */,
 				2848C88F1E40F3E300982B39 /* FBImagePickerDelegate.swift in Sources */,
