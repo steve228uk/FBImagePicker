@@ -25,6 +25,7 @@
 		289FF8791E41F5D0003D4F16 /* FBImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8781E41F5D0003D4F16 /* FBImage.swift */; };
 		289FF87F1E41FADA003D4F16 /* FBImagePickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF87E1E41FADA003D4F16 /* FBImagePickerNavigationController.swift */; };
 		28FCD87D1E4216FA00E3FB2D /* FBImagePickerLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FCD87C1E4216FA00E3FB2D /* FBImagePickerLoadingView.swift */; };
+		28FCD8811E421A1000E3FB2D /* FBImagePickerEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FCD8801E421A1000E3FB2D /* FBImagePickerEmptyState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		289FF8781E41F5D0003D4F16 /* FBImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImage.swift; sourceTree = "<group>"; };
 		289FF87E1E41FADA003D4F16 /* FBImagePickerNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImagePickerNavigationController.swift; sourceTree = "<group>"; };
 		28FCD87C1E4216FA00E3FB2D /* FBImagePickerLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImagePickerLoadingView.swift; sourceTree = "<group>"; };
+		28FCD8801E421A1000E3FB2D /* FBImagePickerEmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImagePickerEmptyState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				28FCD87C1E4216FA00E3FB2D /* FBImagePickerLoadingView.swift */,
+				28FCD8801E421A1000E3FB2D /* FBImagePickerEmptyState.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				28916D581E40B49F00CE0BED /* FBImagePicker.swift in Sources */,
 				289FF87F1E41FADA003D4F16 /* FBImagePickerNavigationController.swift in Sources */,
 				289FF8261E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift in Sources */,
+				28FCD8811E421A1000E3FB2D /* FBImagePickerEmptyState.swift in Sources */,
 				2848C8911E40F80700982B39 /* FBAlbumSelectorViewController.swift in Sources */,
 				2848C88F1E40F3E300982B39 /* FBImagePickerDelegate.swift in Sources */,
 				28FCD87D1E4216FA00E3FB2D /* FBImagePickerLoadingView.swift in Sources */,

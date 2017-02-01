@@ -52,6 +52,10 @@ public class FBImagePicker {
         /// The title to be displayed in the navigation bar on the album selection screen.
         static var albumsTitle = "Facebook Albums"
         
+        static var noAlbumsText = "No Albums"
+        
+        static var noImagesText = "No Images"
+        
         /// The style the status bar should be in the image picker
         static var statusBarStyle = UIStatusBarStyle.lightContent
         
@@ -61,9 +65,9 @@ public class FBImagePicker {
         
         static var navBarTextColor = UIColor.white
         
-        static var imageTransitionDuration = 0.3
+        static var imageTransitionDuration = 0.0
         
-        static var infiniteScrollOffset: CGFloat = 500
+        static var infiniteScrollOffset: CGFloat = 200
         
     }
     

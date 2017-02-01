@@ -20,6 +20,7 @@ open class FBAlbumSelectorViewController: UIViewController {
     fileprivate var loading = false
     fileprivate var nextPage: String?
     fileprivate var loadingView: FBImagePickerLoadingView!
+    fileprivate var emptyView: FBImagePickerEmptyStateView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ open class FBAlbumSelectorViewController: UIViewController {
         
         setupNavBar()
         loadAlbums()
+        addEmptyView()
         addLoadingView()
     }
     
@@ -39,6 +41,19 @@ open class FBAlbumSelectorViewController: UIViewController {
         view.addSubview(loadingView)
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subview]|", options: [], metrics: nil, views: ["subview": loadingView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subview]|", options: [], metrics: nil, views: ["subview": loadingView]))
+    }
+    
+    func addEmptyView() {
+        emptyView = FBImagePickerEmptyStateView()
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        
+        emptyView.label.text = FBImagePicker.Settings.noAlbumsText
+        
+        view.addSubview(emptyView)
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subview]|", options: [], metrics: nil, views: ["subview": emptyView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subview]|", options: [], metrics: nil, views: ["subview": emptyView]))
+        
+        emptyView.isHidden = true
     }
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -58,12 +73,14 @@ open class FBAlbumSelectorViewController: UIViewController {
             self.albums = albums
             self.tableView.reloadData()
             self.nextPage = nextPage
-            self.getNextPage()
-            self.loadingView.fadeOut()
             
-            // TODO: Hide the loading view
-            // TODO: Show an error message if required
-            // TODO: Show a no albums message if required
+            if self.albums.count == 0 {
+                self.emptyView.isHidden = false
+            } else {
+                self.emptyView.isHidden = true
+            }
+            
+            self.loadingView.fadeOut()
         }
     }
     

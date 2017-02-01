@@ -14,6 +14,7 @@ open class FBAlbumViewController: UIViewController {
     
     internal var album: FBAlbum?
     fileprivate var loadingView: FBImagePickerLoadingView!
+    fileprivate var emptyView: FBImagePickerEmptyStateView!
     fileprivate var images = [FBImage]()
     fileprivate var loading = false
     
@@ -25,6 +26,7 @@ open class FBAlbumViewController: UIViewController {
         
         setupNavBar()
         loadPhotos()
+        addEmptyView()
         addLoadingView()
     }
     
@@ -35,6 +37,18 @@ open class FBAlbumViewController: UIViewController {
         view.addSubview(loadingView)
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subview]|", options: [], metrics: nil, views: ["subview": loadingView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subview]|", options: [], metrics: nil, views: ["subview": loadingView]))
+    }
+    
+    func addEmptyView() {
+        emptyView = FBImagePickerEmptyStateView()
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        emptyView.label.text = FBImagePicker.Settings.noImagesText
+        
+        view.addSubview(emptyView)
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subview]|", options: [], metrics: nil, views: ["subview": emptyView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subview]|", options: [], metrics: nil, views: ["subview": emptyView]))
+        
+        emptyView.isHidden = true
     }
     
     /// Setup the navigation bar
@@ -61,7 +75,12 @@ open class FBAlbumViewController: UIViewController {
             self.images = images
             self.collectionView.reloadData()
             self.loadingView.fadeOut()
-            self.getNextPage()
+            
+            if self.images.count == 0 {
+                self.emptyView.isHidden = false
+            } else {
+                self.emptyView.isHidden = true
+            }
         }
     }
     
