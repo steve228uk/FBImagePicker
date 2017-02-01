@@ -42,12 +42,6 @@ public class FBImagePicker {
     ///
     /// - Parameter viewController: The view controller to present the image picker on.
     public class func present(on viewController: UIViewController) {
-        var bundle = Bundle(for: self)
-        if let bundleURL = bundle.url(forResource: "FBImagePicker-Resources", withExtension: "bundle") {
-            guard let resourceBundle = Bundle(url: bundleURL) else { return }
-			bundle = resourceBundle
-        }
-
         guard let vc = UIStoryboard(name: "FBImagePicker", bundle: Bundle(for: self)).instantiateInitialViewController() else { return }
         viewController.present(vc, animated: true, completion: nil)
     }

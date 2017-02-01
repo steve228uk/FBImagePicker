@@ -18,10 +18,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/steve228uk/FBImagePicker.git", :tag => "1.0.0" }
   s.source_files  = "FBImagePicker/**/*.{swift}"
+  s.resources = ['FBImagePicker/**/*.{storyboard}']
   s.framework = "UIKit"
-  s.resource_bundles = {
-      'Resources' => ['FBImagePicker/**/*.{storyboard}']
-  }
 
   s.dependency "Alamofire"
   s.dependency "FBSDKCoreKit"
