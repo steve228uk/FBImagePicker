@@ -14,6 +14,7 @@ open class FBAlbumViewController: UIViewController {
     
     internal var album: FBAlbum?
     fileprivate var images = [FBImage]()
+    var loading = false
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,12 @@ open class FBAlbumViewController: UIViewController {
     
     /// Setup the navigation bar
     fileprivate func setupNavBar() {
+        navigationController?.navigationBar.tintColor = FBImagePicker.Settings.navTintColor
+        navigationController?.navigationBar.barTintColor = FBImagePicker.Settings.navBarTintColor
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSForegroundColorAttributeName: FBImagePicker.Settings.navBarTextColor
+        ]
+        
         let item = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(closePicker))
         navigationItem.setRightBarButton(item, animated: false)
         title = album?.name
@@ -42,10 +49,25 @@ open class FBAlbumViewController: UIViewController {
         album?.getPhotos { [unowned self] images, error in
             self.images = images
             self.collectionView.reloadData()
+            self.getNextPage()
+        }
+    }
+    
+    /// Load the next Page
+    fileprivate func getNextPage() {
+        guard !loading else { return }
+        self.loading = true
+        album?.getNextPage { [unowned self] images, error in
+            guard images.count > 0 else { return }
+            self.images += images
+            self.collectionView.reloadData()
+            self.loading = false
         }
     }
     
 }
+
+// MARK: - Collection View
 
 extension FBAlbumViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
@@ -73,6 +95,18 @@ extension FBAlbumViewController: UICollectionViewDelegateFlowLayout, UICollectio
         dismiss(animated: true) { [unowned cell] in
             FBImagePicker.delegate?.fbImagePicker(imageSelected: cell.photo.image)
         }
+    }
+    
+}
+
+// MARK: - Infinite Scroll
+
+extension FBAlbumViewController: UIScrollViewDelegate {
+    
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let bottom = scrollView.contentOffset.y + scrollView.frame.size.height
+        guard bottom >= scrollView.contentSize.height - FBImagePicker.Settings.infiniteScrollOffset else { return }
+        getNextPage()
     }
     
 }

@@ -63,6 +63,7 @@ public class FBImagePicker {
         
         static var imageTransitionDuration = 0.3
         
+        static var infiniteScrollOffset: CGFloat = 500
         
     }
     

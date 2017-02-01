@@ -16,11 +16,16 @@ class FBPhotoCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let image = image else { return }
             
-            image.getImage { [unowned self] image in
-                UIView.transition(with: self.photo, duration: FBImagePicker.Settings.imageTransitionDuration, options: .transitionCrossDissolve, animations: { [unowned self] in
-                    self.photo.image = image
-                    }, completion: nil)
+            guard let cached = image.image else {
+                image.getImage { [unowned self] image in
+                    UIView.transition(with: self.photo, duration: FBImagePicker.Settings.imageTransitionDuration, options: .transitionCrossDissolve, animations: { [unowned self] in
+                        self.photo.image = image
+                        }, completion: nil)
+                }
+                return
             }
+            
+            photo.image = cached
         }
     }
     
