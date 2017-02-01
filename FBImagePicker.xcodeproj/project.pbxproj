@@ -20,6 +20,8 @@
 		28916D561E40B11B00CE0BED /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28916D541E40B11B00CE0BED /* FBSDKLoginKit.framework */; };
 		28916D581E40B49F00CE0BED /* FBImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28916D571E40B49F00CE0BED /* FBImagePicker.swift */; };
 		289FF8221E41E31C003D4F16 /* FBAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8211E41E31C003D4F16 /* FBAlbumTableViewCell.swift */; };
+		289FF8241E41E504003D4F16 /* FBAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8231E41E504003D4F16 /* FBAlbumViewController.swift */; };
+		289FF8261E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF8251E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		28916D541E40B11B00CE0BED /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		28916D571E40B49F00CE0BED /* FBImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImagePicker.swift; sourceTree = "<group>"; };
 		289FF8211E41E31C003D4F16 /* FBAlbumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAlbumTableViewCell.swift; sourceTree = "<group>"; };
+		289FF8231E41E504003D4F16 /* FBAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAlbumViewController.swift; sourceTree = "<group>"; };
+		289FF8251E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 			children = (
 				2848C8901E40F80700982B39 /* FBAlbumSelectorViewController.swift */,
 				289FF8211E41E31C003D4F16 /* FBAlbumTableViewCell.swift */,
+				289FF8231E41E504003D4F16 /* FBAlbumViewController.swift */,
+				289FF8251E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -284,9 +290,11 @@
 				28916D371E40AE5F00CE0BED /* FBImagePickerError.swift in Sources */,
 				289FF8221E41E31C003D4F16 /* FBAlbumTableViewCell.swift in Sources */,
 				28916D581E40B49F00CE0BED /* FBImagePicker.swift in Sources */,
+				289FF8261E41E6D5003D4F16 /* FBPhotoCollectionViewCell.swift in Sources */,
 				2848C8911E40F80700982B39 /* FBAlbumSelectorViewController.swift in Sources */,
 				2848C88F1E40F3E300982B39 /* FBImagePickerDelegate.swift in Sources */,
 				28916D351E40AC8800CE0BED /* FBAlbum.swift in Sources */,
+				289FF8241E41E504003D4F16 /* FBAlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,13 @@
 import Foundation
 import FBSDKCoreKit
 
+/// The main class for the image picker. Set your delegate and any settings here.
 public class FBImagePicker {
     
     private init() { }
+    
+    /// The delegate that will be called when an image is selected
+    static weak var delegate: FBImagePickerDelegate?
     
     /// Load albums from the Facebook API
     ///
@@ -34,14 +38,28 @@ public class FBImagePicker {
             }
     }
     
+    /// Present the image picker on the view controller defined here.
+    ///
+    /// - Parameter viewController: The view controller to present the image picker on.
     public class func present(on viewController: UIViewController) {
         guard let vc = UIStoryboard(name: "FBImagePicker", bundle: Bundle(for: self)).instantiateInitialViewController() else { return }
         viewController.present(vc, animated: true, completion: nil)
     }
     
+    /// User settings are defined here
     struct Settings {
         
+        /// The title to be displayed in the navigation bar on the album selection screen.
         static var albumsTitle = "Facebook Albums"
+        
+        /// The style the status bar should be in the image picker
+        static var statusBarStyle = UIStatusBarStyle.lightContent
+        
+        static var navTintColor = UIColor.white
+        
+        static var navBarTintColor = UIColor(hue:0.61, saturation:0.60, brightness:0.59, alpha:1.00)
+        
+        static var navBarTextColor = UIColor.white
         
     }
     

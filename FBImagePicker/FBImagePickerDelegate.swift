@@ -6,7 +6,7 @@
 //  Copyright © 2017 Cocoon Development Ltd. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /// The official delegate of the FBImagePicker®
 protocol FBImagePickerDelegate: NSObjectProtocol {
