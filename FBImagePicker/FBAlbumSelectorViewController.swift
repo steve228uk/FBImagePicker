@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 /// This is the first view the user will see in the image picker.
 /// It allows them to select an album which will then show them the images in that album for selection.
@@ -16,6 +17,8 @@ open class FBAlbumSelectorViewController: UIViewController {
     
     /// The albums that have been loaded from Facebook
     fileprivate var albums = [FBAlbum]()
+    fileprivate var loading = false
+    fileprivate var nextPage: String?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,10 @@ open class FBAlbumSelectorViewController: UIViewController {
         
         setupNavBar()
         loadAlbums()
+    }
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return FBImagePicker.Settings.statusBarStyle
     }
     
     /// Setup the navigation bar
@@ -39,10 +46,24 @@ open class FBAlbumSelectorViewController: UIViewController {
         FBImagePicker.getAlbums { [unowned self] albums, nextPage, error in
             self.albums = albums
             self.tableView.reloadData()
-            
+            self.nextPage = nextPage
+            self.getNextPage()
             // TODO: Hide the loading view
             // TODO: Show an error message if required
             // TODO: Show a no albums message if required
+        }
+    }
+    
+    fileprivate func getNextPage() {
+        guard let nextPage = nextPage, !loading else { return }
+        loading = true
+        Alamofire.request(nextPage)
+            .responseJSON { [unowned self] response in
+                guard let dict = response.value as? [String:Any], let albums = dict["data"] as? [[String:Any]] else { return }
+                self.nextPage = (dict["paging"] as? [String:AnyObject])?["next"] as? String
+                self.albums += albums.map(FBAlbum.init)
+                self.tableView.reloadData()
+                self.loading = false
         }
     }
     
@@ -77,6 +98,18 @@ extension FBAlbumSelectorViewController: UITableViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "album") as! FBAlbumTableViewCell
         cell.album = albums[indexPath.row]
         return cell
+    }
+    
+}
+
+// MARK: - Infinite Scroll
+
+extension FBAlbumSelectorViewController: UIScrollViewDelegate {
+    
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let bottom = scrollView.contentOffset.y + scrollView.frame.size.height
+        guard bottom >= scrollView.contentSize.height - FBImagePicker.Settings.infiniteScrollOffset else { return }
+        getNextPage()
     }
     
 }
