@@ -1,6 +1,8 @@
 # FBImagePicker
 ### A simple drop-in image picker for Facebook
 
+![Facebook Image Picker for iOS](https://github.com/steve228uk/FBImagePicker/blob/master/Screenshots/example.gif)
+
 ## Installation
 
 ### CocoaPods
